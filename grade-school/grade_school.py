@@ -10,5 +10,5 @@ class School(object):
         self.roster.setdefault(grade, []).append(student)
 
     def sort(self):
-        for key, value in sorted(self.roster.items()):
-            yield key, tuple(sorted(value))
+        return ((key, tuple(sorted(value))) for key, value
+                in sorted(self.roster.items()))
