@@ -4,10 +4,10 @@ class School(object):
         self.roster = {}
 
     def grade(self, grade):
-        return self.roster.get(grade, [])
+        return self.roster.get(grade, set())
 
     def add(self, student, grade):
-        self.roster.setdefault(grade, []).append(student)
+        self.roster.setdefault(grade, set()).add(student)
 
     def sort(self):
         return ((key, tuple(sorted(value))) for key, value
