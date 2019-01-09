@@ -3,24 +3,13 @@ class HighScores(object):
         self.scores = scores
 
     def latest(self):
-        _latest = self.scores[-1]
-        return _latest
+        return self.scores[-1]
 
     def personal_best(self):
-        _best = max(self.scores)
-        return _best
+        return max(self.scores)
 
     def personal_top(self):
-        _length = len(self.scores)
-        _sorted_scores = sorted(self.scores, reverse=True)
-
-        if _length <= 3:
-            _result = _sorted_scores
-
-        else:
-            _result = _sorted_scores[0:3]
-
-        return _result
+        return sorted(self.scores, reverse=True)[:3]
 
     def report(self):
         _latest = self.latest()
