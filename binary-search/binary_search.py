@@ -3,7 +3,7 @@ def binary_search(list_of_numbers, number):
     if length == 0:
         raise ValueError('Empty list to search in')
 
-    if number < min(list_of_numbers) or number > max(list_of_numbers):
+    if number < list_of_numbers[0] or number > list_of_numbers[-1]:
         raise ValueError('Value not found')
 
     found = None
@@ -28,13 +28,13 @@ def binary_search(list_of_numbers, number):
 
             # Make sure that idx will move by 1 at least. Using math.ceil()
             # instead of // could be another way to do that.
-            idx_offset = len(list_of_numbers[start:end]) // 2 + 1
+            idx_offset = (end - start) // 2 + 1
             idx -= idx_offset
 
         else:
             # right side of array
             start = idx + 1
-            idx_offset = len(list_of_numbers[start:end]) // 2 + 1
+            idx_offset = (end - start) // 2 + 1
             idx += idx_offset
 
     return idx
