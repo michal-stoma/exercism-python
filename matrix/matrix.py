@@ -5,14 +5,11 @@ class Matrix(object):
         # representing rows. Then every row gets splitted, and each
         # value of resulting lists is converted into int. Finally, a map
         # object gets converted back into list.
-        self.matrix = [[element for element in map(int, row.split())]
+        self.matrix = [[int(element) for element in row.split()]
                        for row in matrix_string.split('\n')]
 
     def row(self, index):
         return self.matrix[index]
 
     def column(self, index):
-        # Zip creates list of tuples, so every tuple is converted into
-        # a list
-        columns = [list(column) for column in zip(*self.matrix)]
-        return columns[index]
+        return [row[index] for row in self.matrix]
