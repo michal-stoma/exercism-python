@@ -1,15 +1,5 @@
-RNA_MAP = {
-    'G': 'C',
-    'T': 'A',
-    'C': 'G',
-    'A': 'U'
-}
+RNA_MAP = str.maketrans('GTCA', 'CAGU')
 
 
 def to_rna(dna):
-    rna = []
-
-    for i in dna:
-        rna.append(RNA_MAP[i])
-
-    return ''.join(rna)
+    return dna.translate(RNA_MAP)
