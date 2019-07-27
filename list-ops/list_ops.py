@@ -47,9 +47,8 @@ def foldl(f, l, i):
 
 
 def foldr(f, l, i):
-    l = reverse(l)
     while l:
-        e, *l = l
+        *l, e = l
         i = f(e, i)
     return i
 
@@ -57,5 +56,5 @@ def foldr(f, l, i):
 @_list
 def reverse(l):
     while l:
-        e, l = l[-1], l[:-1]
+        *l, e = l
         yield e
